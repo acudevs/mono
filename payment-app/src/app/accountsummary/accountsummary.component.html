@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <span>My Credit Union</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item routerLink="/login">Logout</button>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
+<form>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto my-3">
+      <mat-card>
+        <div>
+          Savings Account</div>
+        <div>
+          <h1 class="text-success">
+            $50000
+          </h1>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-10 col-lg-8 mx-auto my-3">
+      <mat-card>
+        <div>
+          Checking Account
+        </div>
+        <div>
+          <h1 class="text-success">
+            $4000
+          </h1>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-10 col-lg-8 mx-auto my-3">
+      <mat-card>
+        <div>
+          Car Loan
+        </div>
+        <div>
+          <h1 class="text-danger">
+            $10000
+          </h1>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+</form>
