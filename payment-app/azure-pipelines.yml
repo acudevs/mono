@@ -14,6 +14,8 @@ steps:
 
 - script: |
     ls
+    cd ./payment-app
+    ls
     npm install -g @angular/cli
     npm install
     ng build --prod
