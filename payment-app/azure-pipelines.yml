@@ -18,7 +18,7 @@ steps:
     ls
     npm install -g @angular/cli
     npm install
-    ng build --prod
+    ng build --prod --output-path '$(Build.ArtifactStagingDirectory)'
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
