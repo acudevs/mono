@@ -8,59 +8,54 @@ namespace Preapproval.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
-        List<Item> items;
+        Item person = new Item();
 
         public MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
-            };
+            //var mockItems = new List<Item>
+            //{
+            //    new Item { Id = Guid.NewGuid().ToString(), Name = "First item", Description="This is an item description." },
+            //    new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
+            //    new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
+            //    new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
+            //    new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
+            //    new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+            //};
 
-            foreach (var item in mockItems)
-            {
-                items.Add(item);
-            }
+            //foreach (var item in mockItems)
+            //{
+            //    items.Add(item);
+            //}
         }
 
         public async Task<bool> AddItemAsync(Item item)
         {
-            items.Add(item);
+            person = item;
+            //items.Add(item);
 
             return await Task.FromResult(true);
         }
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(oldItem);
-            items.Add(item);
-
+            //var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            //items.Remove(oldItem);
+            //items.Add(item);
+            person = item;
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync()
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(oldItem);
-
+            //var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            //items.Remove(oldItem);
+            person = new Item();
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync()
         {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
-        }
-
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
-        {
-            return await Task.FromResult(items);
+            return await Task.FromResult(person);
         }
     }
 }

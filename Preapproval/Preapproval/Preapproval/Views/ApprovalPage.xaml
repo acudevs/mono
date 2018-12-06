@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Preapproval;assembly=Preapproval"
+             x:Class="Preapproval.Views.ApprovalPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15" WidthRequest="100" HeightRequest="100">
+            <Image Source="{local:ImageResource Preapproval.approved.jpg}"></Image>
+            <Label Text="{Binding Item.Name}" FontSize="Large" />
+            <Label Text="You are approved for $50,000" FontSize="Large" />
+            <Button Text="Home" Clicked="Done_Clicked"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                BackgroundColor="DarkGreen"    
+                TextColor="WhiteSmoke" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

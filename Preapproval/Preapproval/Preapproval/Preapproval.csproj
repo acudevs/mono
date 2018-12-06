@@ -10,6 +10,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="approved.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="approved.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.912540" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ApprovalPage.xaml.cs">
+      <DependentUpon>ApprovalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PersonalPage.xaml.cs">
+      <DependentUpon>PersonalPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\StartLoanApp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

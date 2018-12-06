@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Preapproval.Views.AboutPage"
-             xmlns:vm="clr-namespace:Preapproval.ViewModels"
-             Title="{Binding Title}">
+             x:Class="Preapproval.Views.StartLoanApp"
+             Title="My Credit Union">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="My Test App !!"
+            <Button Text="Get Preapproved" Clicked="StartLoanApp_Clicked"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" 
+                BackgroundColor="DarkGreen"    
+                TextColor="WhiteSmoke" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Preapproval.Views.PersonalPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Name" FontSize="Small" />
+                <Entry Text="{Binding Item.Name}" FontSize="Small" />
+                <Label Text="Ssn" FontSize="Small" />
+                <Editor Text="{Binding Item.Ssn}" FontSize="Small" Margin="0" MaxLength="9" />
+                <Label Text="Address1" FontSize="Small" />
+                <Editor Text="{Binding Item.Address1}" FontSize="Small" Margin="0" MaxLength="50" />
+                <Label Text="Address2" FontSize="Small" />
+                <Editor Text="{Binding Item.Address2}" FontSize="Small" Margin="0" MaxLength="50" />
+                <Label Text="City" FontSize="Small" />
+                <Editor Text="{Binding Item.City}" FontSize="Small" Margin="0" MaxLength="50" />
+                <Label Text="State" FontSize="Small" />
+                <Editor Text="{Binding Item.State}" FontSize="Small" Margin="0" MaxLength="2" />
+                <Label Text="Zip Code" FontSize="Small" />
+                <Editor Text="{Binding Item.Zip}" FontSize="Small" Margin="0" MaxLength="5" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

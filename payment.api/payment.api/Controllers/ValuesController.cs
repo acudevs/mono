@@ -8,13 +8,23 @@ namespace payment.api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0", Deprecated =true)]
+    [ApiVersion("1.1")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "old1", "old2" };
+        }
+
+        [HttpGet]
+        [MapToApiVersion("1.1")]
+        public ActionResult<IEnumerable<string>> GetV1_1()
+        {
+            return new string[] { "new1", "new2" };
         }
 
         // GET api/values/5
