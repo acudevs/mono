@@ -12,8 +12,13 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+
 steps:
-- script: dotnet build --configuration $(buildConfiguration) -o '$(Build.ArtifactStagingDirectory)'
+- script: 
+    ls
+    cd ./token
+    ls
+    dotnet build --configuration $(buildConfiguration) -o '$(Build.ArtifactStagingDirectory)'
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
