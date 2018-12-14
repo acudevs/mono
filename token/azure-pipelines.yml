@@ -12,9 +12,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-
 steps:
-- script: 
+- script: |
     ls
     cd ./token
     ls
