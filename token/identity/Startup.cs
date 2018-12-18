@@ -62,15 +62,15 @@ namespace identity
                     options.EnableTokenCleanup = true;
                     // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
                 });
-            
 
-            
-            if (Environment.IsDevelopment())
-            {
-                builder.AddDeveloperSigningCredential();
-            }
-            else
-            {
+
+
+            //if (Environment.IsDevelopment())
+            //{
+            //    builder.AddDeveloperSigningCredential();
+            //}
+            //else
+            //{
                 var fileName = Path.Combine(Environment.WebRootPath, "powershellcert.pfx");
 
                 if (!File.Exists(fileName))
@@ -80,9 +80,9 @@ namespace identity
 
                 var cert = new X509Certificate2(fileName, "password1234");
 
-                services.AddIdentityServer().AddSigningCredential(cert);
+                builder.AddSigningCredential(cert);
                 //throw new Exception("need to configure key material");
-            }
+            //}
 
             services.AddAuthentication()
                 .AddCookie(IdentityConstants.ExternalScheme,
