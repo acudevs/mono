@@ -71,7 +71,7 @@ namespace identity
             //}
             //else
             //{
-                var fileName = Path.Combine(Environment.WebRootPath, "powershellcert.pfx");
+                var fileName = Path.Combine(Environment.WebRootPath, "powershellcert");
 
                 if (!File.Exists(fileName))
                 {
