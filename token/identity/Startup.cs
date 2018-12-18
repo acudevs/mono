@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using identity.UserServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -60,14 +62,26 @@ namespace identity
                     options.EnableTokenCleanup = true;
                     // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
                 });
+            
 
+            
             if (Environment.IsDevelopment())
             {
                 builder.AddDeveloperSigningCredential();
             }
             else
             {
-                throw new Exception("need to configure key material");
+                var fileName = Path.Combine(Environment.WebRootPath, "powershellcert.pfx");
+
+                if (!File.Exists(fileName))
+                {
+                    throw new FileNotFoundException("Signing Certificate is missing!");
+                }
+
+                var cert = new X509Certificate2(fileName, "password1234");
+
+                services.AddIdentityServer().AddSigningCredential(cert);
+                //throw new Exception("need to configure key material");
             }
 
             services.AddAuthentication()
@@ -108,7 +122,7 @@ namespace identity
             app.UseIdentityServer();
             app.UseMvcWithDefaultRoute();
 
-            //TestSeedData.EnsureSeedData(app.ApplicationServices);
+            TestSeedData.EnsureSeedData(app.ApplicationServices);
         }
     }
 }

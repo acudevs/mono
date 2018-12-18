@@ -36,16 +36,7 @@ namespace identity.UserServices
 
             var claims = new List<Claim>
             {
-                new Claim("role", "disclosure.admin"),
-                new Claim("role", "configuration.admin"),
-                new Claim("role", "healthcheck.admin"),
-                new Claim("role", "communication.admin"),
-                new Claim("role", "workflow.admin"),
-                new Claim("role", "warning.admin"),
-                new Claim("role", "envelope.admin"),
-                new Claim("role", "notificationSubscription.admin"),
-                new Claim("role", "notificationsubscriptioncontact.admin"),
-                new Claim("role", "notification.admin"),
+                new Claim("role", "superadmin"),
                 new Claim("username", user.UserName),
                 new Claim("email", user.Email)
             };

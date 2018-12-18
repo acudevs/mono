@@ -11,20 +11,9 @@ namespace identity.UserServices
         {
             new CustomUser{
                 SubjectId = "123",
-                UserName = "vpatel",
-                Password = "vishal",
-                Email = "vishal@dude.com"
-            },
-            new CustomUser{
-                SubjectId = "124",
-                UserName = "apatel",
-                Password = "aarush",
-                Email = "aarush@dude.com"
-            },
-            new CustomUser{
-                SubjectId = "GDEACU\\VPATEL",
-                UserName = "GDEACU\\VPATEL",
-                Email = "vpatel@alliantcreditunion.com"
+                UserName = "test",
+                Password = "test",
+                Email = "test@mycreditunion.com"
             }
         };
 

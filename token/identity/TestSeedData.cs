@@ -2,6 +2,7 @@
 using System.Linq;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace identity
@@ -14,9 +15,9 @@ namespace identity
 
             using (var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                //scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+                scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
                 var context = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
-                //context.Database.Migrate();
+                context.Database.Migrate();
                 EnsureSeedData(context);
             }
 
