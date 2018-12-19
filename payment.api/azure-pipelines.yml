@@ -15,7 +15,7 @@ variables:
 steps:
 - script: |
     ls
-    cd ./token
+    cd ./payment.api
     ls
     dotnet publish --configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
   displayName: 'dotnet publish $(buildConfiguration)'
